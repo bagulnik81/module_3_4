@@ -1,12 +1,15 @@
-#def single_root_words(root_word, *other_words):
-def single_root_words(root_word,other_words):
+def single_root_words(root_word, *other_words):
     same_words = []
     for i in range(len(other_words)):
-        #if root_word.lower() == other_words[i]:
-        if (root_word.lower() in other_words[i] != True):
+        if (root_word.lower() in other_words[i].lower() != True):
+            same_words.append(other_words[i])
+        elif (other_words[i].lower() in root_word.lower() != True):
             same_words.append(other_words[i])
 
-    return  print(same_words)
+    return same_words
 
 
-single_root_words("rich", ["pich", "richiest", 'orichalcum', 'cheers', 'richies'])
+result1 = single_root_words('rich', 'richiest', 'orichalcum', 'cheers', 'richies')
+result2 = single_root_words('Disablement', 'Able', 'Mable', 'disable', 'Bagel')
+print(result1)
+print(result2)
